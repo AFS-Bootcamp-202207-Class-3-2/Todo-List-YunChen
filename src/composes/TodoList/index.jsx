@@ -1,19 +1,16 @@
-import React ,{useEffect}from 'react'
+import React ,{useEffect,useState}from 'react'
 
 import TodoGenerator from '../TodoGenerator'
 import TodoGroup from '../TodoGroup'
 export default function TodoList() {
-    const todoList = []
-    useEffect(()=>{},todoList)
+    const [todoList,setTodoList] = useState([]);
     const supplyTodoMessage = (todoMessage)=>{
-        todoList.push(todoMessage)
-        console.log(todoList)
+        setTodoList([...todoList,todoMessage])
     }
     return (
         <>
             <div>TodoList</div>
-            <input type="disabled" value="aa" />
-            <TodoGroup/>
+            <TodoGroup todoList={todoList}/>
             <TodoGenerator supplyTodoMessage={supplyTodoMessage}/>
         </>
     )

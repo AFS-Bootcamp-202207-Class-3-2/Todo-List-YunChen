@@ -5,7 +5,7 @@ export default function TodoItem(props) {
   return (
     
     <div>
-        <input type="disabled" value={event} />
+        <input type="disabled" value={event} onChange={()=>{}}/>
     </div>
   )
 }
