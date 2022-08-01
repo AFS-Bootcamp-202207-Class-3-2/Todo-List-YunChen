@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function TodoItem() {
+export default function TodoItem(props) {
+    const {event} =props
   return (
-    <div>TodoItem</div>
+    
+    <div>
+        <input type="disabled" value={event} />
+    </div>
   )
 }
