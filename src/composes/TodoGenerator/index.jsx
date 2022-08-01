@@ -6,13 +6,18 @@ export default function TodoGenerator(props) {
     const inputTextChange=(target)=>{
         setUserInput(target.target.value)
     }
-    const generateTodo = ()=>{
+    const generateTodo = (e)=>{
+        if(e._reactName === 'onKeyDown' && e.keyCode){
+            if(e.keyCode!==13){
+                return;
+            }
+        }
         supplyTodoMessage(userInput)
         setUserInput('')
     }
   return (
     <div>
-        <input type="text" value={userInput} onChange={inputTextChange}/><button onClick={generateTodo}>Add</button>
+        <input type="text" value={userInput} onChange={inputTextChange} onKeyDown={generateTodo}/><button  onClick={generateTodo}>Add</button>
     </div>
   )
 }
