@@ -1,0 +1,12 @@
+.todoListBox{
+    display: flex;
+    flex-direction: column;
+}
+.tasks{
+    display: flex;
+    justify-content: space-around;
+}
+.kon{
+    width: 50px;
+
+}
