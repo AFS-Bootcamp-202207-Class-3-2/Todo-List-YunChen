@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux/es/exports';
 import { addTodo } from '../todoListSlice';
 import {uuid} from '../../utils/uuid'
+import '../../asserts/css/todolist.css'
+import '../../asserts/css/todolist.css'
 export default function TodoGenerator(props) {
     const dispatch = useDispatch()
     const [userInput, setUserInput] = useState('');
@@ -23,10 +25,11 @@ export default function TodoGenerator(props) {
         setUserInput('')
     }
     return (
-        <div>
-            <input type="text" value={userInput} onChange={inputTextChange}
+        <div className='generatorInput'>
+            <textarea className='testAreaTodoData' type="text" value={userInput}
+             onChange={inputTextChange}
                 onKeyDown={generateTodo} />
-            <button onClick={generateTodo}>Add</button>
+            <button className='testAreaTodoSubBtn' onClick={generateTodo}>Add</button>
         </div>
     )
 }

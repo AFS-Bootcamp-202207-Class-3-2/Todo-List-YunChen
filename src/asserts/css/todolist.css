@@ -10,3 +10,58 @@
     width: 50px;
 
 }
+.titleName{
+    text-align: center;
+    font-size: 6rem;
+    font-family:'STXinwei';
+    text-shadow: 2px 2px 2px #e9dede,
+    4px 4px 4px #e9dede,
+    5px 5px 5px #e9dede,
+    7px 7px 7px #e9dede,
+    9px 9px 9px #e9dede;
+}
+.generatorInput,.generatorUserInput{
+    margin: 0 auto;
+    min-width: 506px;
+}
+.todoitem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoitemBtn{
+    line-height: 4px;
+    border: 2px solid red;
+    height: 8px;
+    margin: 20px 20px 20px 0;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.todo-text{
+    min-width: 340px;
+    cursor: pointer;
+}
+.todo-inner-text,.todo-inner-text-done{
+    margin-left: 20px;
+}
+.todo-inner-text-done{
+    text-decoration: line-through
+}
+
+.testAreaTodoData{
+    min-width: 306px;
+    min-height: 60px;
+    display: block;
+}
+.testAreaTodoSubBtn{
+    display: block;
+    min-width: 100px;
+    min-height: 60px;
+    background-color: rgb(160, 240, 196);
+    border: none;
+    border-radius: 12px;
+}
+.generatorInput{
+    display: flex;
+    justify-content: space-between;
+}

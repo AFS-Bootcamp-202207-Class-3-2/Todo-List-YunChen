@@ -12,11 +12,22 @@ export const todoSlice = createSlice({
     reducers: {
         addTodo:(state,action)=>{
             let dataObj = action.payload
-            console.log(state,action)
             state.push(dataObj)
-            console.log(state,action)
+        },removeTodo:(state,action)=>{
+            for(let idx in state){
+                if(action.payload.id === state[idx].id){
+                    state.splice(idx,1)
+                }
+            }
+        },updateDone:(state,action)=>{
+            console.log(action.payload)
+            for(let idx in state){
+                if(action.payload === state[idx].id){
+                    state[idx].done = !state[idx].done
+                }
+            }
         }
     }
 })
 export default todoSlice.reducer
-export const {addTodo} = todoSlice.actions
+export const {addTodo,removeTodo,updateDone} = todoSlice.actions
