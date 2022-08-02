@@ -1,6 +1,7 @@
 import '../../asserts/css/todoitem.css'
 import { useDispatch } from 'react-redux'
 import { removeTodo, updateDone } from '../todoListSlice'
+import { useState } from 'react'
 export default function TodoItem(props) {
   const { todo } = props
   const dispatch = useDispatch()
@@ -8,8 +9,8 @@ export default function TodoItem(props) {
     dispatch(removeTodo(todo))
   }
   let isDoneCss = 'todo-inner-text'
-  if(todo.done){
-    isDoneCss = isDoneCss+' todo-inner-text-done'
+  if (todo.done) {
+    isDoneCss = isDoneCss + ' todo-inner-text-done'
   }
   const updateDoneText = () => {
     console.log(todo.text)
