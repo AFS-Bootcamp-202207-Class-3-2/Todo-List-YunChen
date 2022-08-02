@@ -1,26 +1,27 @@
-import { useState ,useEffect} from 'react'
-
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux/es/exports';
+import { addTodo } from '../todoListSlice';
+import {uuid} from '../../utils/uuid'
 export default function TodoGenerator(props) {
-    const { supplyTodoMessage } = props
+    const dispatch = useDispatch()
     const [userInput, setUserInput] = useState('');
     const inputTextChange = (event) => {
         setUserInput(event.target.value)
     }
-    
-    const [test, setTest] = useState(0)
     const generateTodo = (e) => {
         if (e._reactName === 'onKeyDown' && e.keyCode) {
             if (e.keyCode !== 13) {
                 return;
             }
         }
-        supplyTodoMessage(userInput)
+        let todoItem = {
+            id:uuid(),
+            text: `${userInput}`,
+            done: false
+        }
+        dispatch(addTodo(todoItem))
         setUserInput('')
     }
-    useEffect(()=>{
-        console.log(test)
-        console.log('flush!')
-    },[test])
     return (
         <div>
             <input type="text" value={userInput} onChange={inputTextChange}
