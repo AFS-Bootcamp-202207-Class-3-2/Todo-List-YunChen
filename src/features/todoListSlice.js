@@ -29,10 +29,8 @@ export const todoSlice = createSlice({
         }, searchTodoList: (state, action) => {
             return action.payload
         }, updateToDoData: (state, action) => {
-            console.log(action.payload);
             for (let idx in state) {
                 if (action.payload.id === state[idx].id) {
-                    console.log(state[idx].id,'state');
                     state[idx].text = action.payload.text
                     break
                 }

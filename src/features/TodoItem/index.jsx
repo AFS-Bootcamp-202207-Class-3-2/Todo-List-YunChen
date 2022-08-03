@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux'
 import { removeTodo, updateDone, updateToDoData } from '../todoListSlice'
 import ToDoApi from '../../api/todo.js'
 import { Button, Modal } from 'antd';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { EditOutlined } from '@ant-design/icons';
-import TodoApi from '../../api/todo.js'
 import { Input } from 'antd';
 export default function TodoItem(props) {
   const { todo } = props
@@ -19,7 +18,6 @@ export default function TodoItem(props) {
   const showModal = () => {
     setVisible(true);
     ToDoApi.getToDoById(todo.id).then((res) => {
-      console.log(res.data);
       setOldData(res.data.text)
     })
   };
@@ -33,9 +31,7 @@ export default function TodoItem(props) {
 
     ToDoApi.updateToDo(todo.id, editToupdate)
       .then((res) => {
-        console.log('edit message id:', res.data);
         dispatch(updateToDoData(editToupdate))
-        console.log('edit message id:',todo);
         setOldData(res.data.text)
         setModalText(res.data.text)
         setVisible(false);
@@ -43,12 +39,7 @@ export default function TodoItem(props) {
       })
 
   };
-  useEffect(() => {
-    console.log(todo);
-
-  }, [])
   const handleCancel = () => {
-    console.log('Clicked cancel button');
     setVisible(false);
   };
   const removeItem = () => {
@@ -58,7 +49,6 @@ export default function TodoItem(props) {
 
   }
   const onChange = (e) => {
-    console.log('Change:', e.target.value);
     setModalText(e.target.value)
   };
   let isDoneCss = 'todo-inner-text'
@@ -73,7 +63,6 @@ export default function TodoItem(props) {
       done: !todo.done
     }
     ToDoApi.updateToDo(updataOjb.id, updataOjb).then(res => {
-      console.log(res.data, 'update Mock')
       if (res.data.done) {
         isDoneCss = isDoneCss + ' todo-inner-text-done'
       }
