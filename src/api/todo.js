@@ -22,5 +22,10 @@ export default {
             method: 'put',
             data:data
         })
+    },getToDoById(todoId) {
+        return request({
+            url: `/api/todo2/${todoId}`,
+            method: 'get',
+        })
     }
 }

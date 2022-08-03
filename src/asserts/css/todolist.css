@@ -42,10 +42,7 @@
     cursor: pointer;
     border-radius: 8px;
 }
-.todo-text{
-    min-width: 340px;
-    cursor: pointer;
-}
+
 .todo-inner-text,.todo-inner-text-done{
     margin-left: 20px;
 }

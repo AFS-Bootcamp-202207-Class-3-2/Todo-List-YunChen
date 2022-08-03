@@ -23,12 +23,27 @@ export const todoSlice = createSlice({
             for (let idx in state) {
                 if (action.payload === state[idx].id) {
                     state[idx].done = !state[idx].done
+                    break
                 }
             }
-        },searchTodoList:(state,action)=>{
+        }, searchTodoList: (state, action) => {
             return action.payload
+        }, updateToDoData: (state, action) => {
+            console.log(action.payload);
+            for (let idx in state) {
+                if (action.payload.id === state[idx].id) {
+                    console.log(state[idx].id,'state');
+                    state[idx].text = action.payload.text
+                    break
+                }
+            }
+            return state
         }
     }
 })
 export default todoSlice.reducer
-export const { addTodo, removeTodo, updateDone ,searchTodoList} = todoSlice.actions
+export const { addTodo,
+    removeTodo,
+    updateDone,
+    searchTodoList,
+    updateToDoData } = todoSlice.actions
