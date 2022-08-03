@@ -1,0 +1,11 @@
+.done-page{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 4rem;
+    font-weight: 600;
+}
+.done-page-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
