@@ -84,3 +84,37 @@
     4px 4px 4px#333333,
     6px 6px 6px#333333;
 } */
+
+
+.app-total-box a{
+ display: block;
+}
+.nav-btn-box{
+    display: flex;
+    justify-content: center;
+    
+}
+.nav-btn{
+    box-sizing: border-box;
+    margin: 10px 30px;
+    background-color: rgb(255, 97, 97);
+    border: 0 none;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 12px;
+    text-align: center;
+    line-height:40px;
+    text-decoration:none
+}
+.nav-btn-active{
+    background-color: rgb(102, 255, 97);
+}
+.nav-btn{
+    color: rgb(8, 107, 153);
+}
+.nav-btn:visited{color:rgb(1, 10, 1);}
+
+.nav-btn:hover {color:rgb(31, 31, 6);background:rgb(236, 233, 56);}
+
+.nav-btn:active {color:lime;background:red;}

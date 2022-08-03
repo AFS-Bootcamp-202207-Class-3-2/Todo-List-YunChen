@@ -1,12 +1,20 @@
 import './App.css';
 import './asserts/css/todolist.css'
-import TodoList from './features/TodoList';
+import routes from './router'
+import {useRoutes, NavLink } from 'react-router-dom';
 function App() {
+  const element = useRoutes(routes)
   return (
-    <div className="App">
-      <div></div>
-      <div className='todoList-card'><TodoList/></div>
-      <div></div>
+    <div className='app-total-box'>
+      <div className='nav-btn-box'>
+        <NavLink className={({isActive}) => !isActive?'nav-btn':'nav-btn nav-btn-active'} to={"/"}>TodoList</NavLink>
+        <NavLink className={({isActive}) => !isActive?'nav-btn':'nav-btn nav-btn-active'} to={"/help"}>Help</NavLink>
+        <NavLink className={({isActive}) => !isActive?'nav-btn':'nav-btn nav-btn-active'} to={"/done"}>done</NavLink>
+      </div>
+      <div className="App">
+        {element}
+      </div>
+
     </div>
   );
 }

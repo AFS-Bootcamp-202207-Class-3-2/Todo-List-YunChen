@@ -8,26 +8,27 @@ const initState = [
 ]
 export const todoSlice = createSlice({
     name: 'todoList',
-    initialState:initState,
+    initialState: initState,
     reducers: {
-        addTodo:(state,action)=>{
+        addTodo: (state, action) => {
             let dataObj = action.payload
             state.push(dataObj)
-        },removeTodo:(state,action)=>{
-            for(let idx in state){
-                if(action.payload.id === state[idx].id){
-                    state.splice(idx,1)
+        }, removeTodo: (state, action) => {
+            for (let idx in state) {
+                if (action.payload.id === state[idx].id) {
+                    state.splice(idx, 1)
                 }
             }
-        },updateDone:(state,action)=>{
-            console.log(action.payload)
-            for(let idx in state){
-                if(action.payload === state[idx].id){
+        }, updateDone: (state, action) => {
+            for (let idx in state) {
+                if (action.payload === state[idx].id) {
                     state[idx].done = !state[idx].done
                 }
             }
+        },searchTodoList:(state,action)=>{
+            return action.payload
         }
     }
 })
 export default todoSlice.reducer
-export const {addTodo,removeTodo,updateDone} = todoSlice.actions
+export const { addTodo, removeTodo, updateDone ,searchTodoList} = todoSlice.actions
