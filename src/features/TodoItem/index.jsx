@@ -2,16 +2,17 @@ import '../../asserts/css/todoitem.css'
 import { useDispatch } from 'react-redux'
 import { removeTodo, updateDone } from '../todoListSlice'
 import ToDoApi from '../../api/todo.js'
+import { Button } from 'antd';
 export default function TodoItem(props) {
   const { todo } = props
 
   const dispatch = useDispatch()
 
   const removeItem = () => {
-    ToDoApi.deleteToDo(todo.id).then((res)=>{
+    ToDoApi.deleteToDo(todo.id).then((res) => {
       dispatch(removeTodo(res.data))
     })
-    
+
   }
   let isDoneCss = 'todo-inner-text'
   if (todo.done) {
@@ -40,10 +41,10 @@ export default function TodoItem(props) {
           <li>{todo.text}</li>
         </div>
       </div>
-      <div className='todoitemBtn'>
-        <span onClick={removeItem}>
+      <div >
+        <Button className='antd-delete-btn' type="primary" danger onClick={removeItem}>
           &times;
-        </span>
+        </Button>
       </div>
     </div>
   )
