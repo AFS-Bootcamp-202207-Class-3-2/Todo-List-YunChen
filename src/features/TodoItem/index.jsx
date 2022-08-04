@@ -18,7 +18,7 @@ export default function TodoItem(props) {
   const showModal = () => {
     setVisible(true);
     ToDoApi.getToDoById(todo.id).then((res) => {
-      setOldData(res.data.text)
+      setOldData(res.data.data.data.text)
     })
   };
   const handleOk = () => {
@@ -32,8 +32,8 @@ export default function TodoItem(props) {
     ToDoApi.updateToDo(todo.id, editToupdate)
       .then((res) => {
         dispatch(updateToDoData(editToupdate))
-        setOldData(res.data.text)
-        setModalText(res.data.text)
+        setOldData(res.data.data.data.text)
+        setModalText(res.data.data.data.text)
         setVisible(false);
         setConfirmLoading(false);
       })
@@ -44,7 +44,7 @@ export default function TodoItem(props) {
   };
   const removeItem = () => {
     ToDoApi.deleteToDo(todo.id).then((res) => {
-      dispatch(removeTodo(res.data))
+      dispatch(removeTodo(res.data.data.data))
     })
 
   }
@@ -63,10 +63,10 @@ export default function TodoItem(props) {
       done: !todo.done
     }
     ToDoApi.updateToDo(updataOjb.id, updataOjb).then(res => {
-      if (res.data.done) {
+      if (res.data.data.data.done) {
         isDoneCss = isDoneCss + ' todo-inner-text-done'
       }
-      dispatch(updateDone(res.data.id))
+      dispatch(updateDone(res.data.data.data.id))
     })
   }
 

@@ -32,7 +32,8 @@ export default function TodoList() {
         }
         )
         ToDoApi.getToDo().then((response)=>{
-            dispatch(searchTodoList(response.data))
+            console.log(response.data.data)
+            dispatch(searchTodoList(response.data.data.data))
         })
         
     },[])

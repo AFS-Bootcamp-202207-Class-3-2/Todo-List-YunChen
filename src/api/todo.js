@@ -2,29 +2,29 @@ import request from '../utils/axios.js'
 export default {
     getToDo() {
         return request({
-            url: `/api/todo2`,
+            url: `/todo/all`,
             method: 'get'
         })
     },addToDo(data) {
         return request({
-            url: `/api/todo2`,
+            url: `/todo/addtodo`,
             method: 'post',
             data
         })
     },deleteToDo(todoId) {
         return request({
-            url: `/api/todo2/${todoId}`,
+            url: `/todo/deletetodo/${todoId}`,
             method: 'delete'
         })
     },updateToDo(todoId,data) {
         return request({
-            url: `/api/todo2/${todoId}`,
+            url: `/todo/updatetodo/${todoId}`,
             method: 'put',
             data:data
         })
     },getToDoById(todoId) {
         return request({
-            url: `/api/todo2/${todoId}`,
+            url: `/todo/todo/one/${todoId}`,
             method: 'get',
         })
     }

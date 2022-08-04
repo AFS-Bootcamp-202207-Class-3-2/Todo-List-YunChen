@@ -24,7 +24,7 @@ export default function TodoGenerator() {
             done: false
         }
         ToDoApi.addToDo(todoItem).then((response)=>{
-            dispatch(addTodo(response.data))
+            dispatch(addTodo(response.data.data.data))
         })
         
         setUserInput('')
